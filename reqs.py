@@ -35,5 +35,6 @@ def get_latest_comment(user_id):
     
     return r.text
 
-print(get_user_id("TFTM"))
+print(get_user_id("DevExit"))
+print(get_latest_comment(173831))
 print(get_latest_comment(147721662))
