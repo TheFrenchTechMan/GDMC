@@ -2,7 +2,7 @@ import base64
 import requests
 from utils import tuples_to_dict
 
-def get_user_id(username):
+def get_account_id(username):
     data = {
         "str": username,
         "secret": "Wmfd2893gb7"
@@ -38,5 +38,5 @@ def get_latest_comment(account_id):
     return base64.b64decode(r.text.split("~")[1]).decode()
 
 if __name__ == "__main__":
-    print(get_user_id("TFTM"))
+    print(get_account_id("TFTM"))
     print(get_latest_comment(13896382))
