@@ -8,7 +8,7 @@ def verify_account(username):
         return None
     
     text = "".join([rnd.choice(string.ascii_letters) for _ in range(16)])
-    print(f"Please post \"{text}\" as a comment in your Geometry Dash profile to verify ownership. Press Return when done.")
+    print(f"Please post \"{text}\" as a comment on your Geometry Dash profile to verify ownership. Press Return when done.")
     input()
     comment = get_latest_comment(acc_id)
     print(comment)
