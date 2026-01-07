@@ -37,5 +37,6 @@ def get_latest_comment(account_id):
     
     return base64.b64decode(r.text.split("~")[1]).decode()
 
-print(get_user_id("TFTM"))
-print(get_latest_comment(13896382))
+if __name__ == "__main__":
+    print(get_user_id("TFTM"))
+    print(get_latest_comment(13896382))
