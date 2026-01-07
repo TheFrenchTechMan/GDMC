@@ -1,4 +1,6 @@
+import base64
 import requests
+from utils import tuples_to_dict
 
 def get_user_id(username):
     data = {
@@ -16,11 +18,11 @@ def get_user_id(username):
     if r.status_code == 403:
         return None
     else:
-        return r.text.split(":")[3]
+        return tuples_to_dict(r.text.split(":"))["16"] #Key 16 is AccountID
 
-def get_latest_comment(user_id):
+def get_latest_comment(account_id):
     data = {
-        "accountID": user_id,
+        "accountID": account_id,
         "page": 0,
         "secret": "Wmfd2893gb7"
     }
@@ -33,8 +35,7 @@ def get_latest_comment(user_id):
     url = "http://www.boomlings.com/database/getGJAccountComments20.php"
     r = requests.post(url, data=data, headers=headers)
     
-    return r.text
+    return base64.b64decode(r.text.split("~")[1]).decode()
 
-print(get_user_id("DevExit"))
-print(get_latest_comment(173831))
-print(get_latest_comment(147721662))
+print(get_user_id("TFTM"))
+print(get_latest_comment(13896382))
